@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+body.aboutus{
+  background-color: #FFFF;
+}
+body {font-family: myFirstFont;}
+* {box-sizing: border-box;}
+
+.bg-img {
+  /* The image used */
+  background-image: url("images/dogcatcuddle.jpg");
+
+  min-height: 380px;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+  /* Needed to position the navbar */
+  position: relative;
+}
+
+/* Position the navbar container inside the image */
+.container {
+  position: absolute;
+  margin: 20px;
+  width: auto;
+}
+
+/* The navbar */
+.topnav {
+  overflow: hidden;
+   background-color: #45A3C5;
+   margin-left: 1040px;
+   margin-top: 30px;
+   z-index: 10;
+   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);;
+}
+
+/* Navbar links */
+.topnav a {
+  float: right;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+* {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+h1{
+    color:#45A3C5;
+    text-align: center;
+    font-family: 'Inter';
+    font-style: italic;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 48px;
+    text-align: center;
+}
+h2{
+    color: black;
+    font-family: 'Inter';
+    font-style: italic;
+    font-weight: 200;
+    font-size: 32px;
+    line-height: 39px;
+    text-align:center;
+}
+h3{
+    font-family: 'Inter';
+    font-style: italic;
+    font-weight: 200;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+}
+.vl {
+  border-left: 2px solid black;
+  height: 300px;
+  position: absolute;
+  left: 50%;
+  margin-left: -3px;
+  top: 0;
+}
+.vl {
+  border-left: 1px solid n;
+  height: 350px;
+  position:fixed;
+  left: 50%;
+  margin-left: -3px;
+  top: 0;
+  transform: translate(-50%, 100%);
+}
+.buttons {
+  margin-top: 20px;
+}
+
+.cta-button {
+  text-decoration: none;
+  margin-left: 230px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 50px;
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #B0F187;
+  width: 100%;
+  border: 0;
+  padding: 15px 40px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+  border: 0.966611px solid #B0F187;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 50px;
+
+}
+
+.cta-button:hover,
+.form button:active,
+.form button:focus {
+  background: #45A3C5;
+}
+
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+  $(document).ready(function() {
+    // Handle AJAX navigation
+    $('.ajax-link').click(function(e) {
+      e.preventDefault();
+      var targetPage = $(this).data('target');
+      
+      $.ajax({
+        url: targetPage,
+        type: 'GET',
+        dataType: 'html',
+        success: function(response) {
+          // Update the content of the <body> element with the loaded page
+          $('body').html(response);
+        },
+        error: function(xhr, status, error) {
+          console.log('Error loading page: ' + error);
+        }
+      });
+    });
+  });
+  </script>  
+</head>
+<body class="aboutus">
+
+<div class="bg-img">
+  <div class="container">
+   <div class="topnav">
+    <a href="homepage.html" class="ajax-link" data-target="homepage.html">Logout</a>
+    <a href="contactus.html" class="ajax-link" data-target="contactus.html">Contact us</a> 
+    <a href="aboutus.html" class="ajax-link" data-target="aboutus.html">About us</a>
+    <a href="homepage2.html" class="ajax-link" data-target="homepage2.html">Home</a>
+  </div>
+  </div>
+</div>
+<div class="row">
+    <div class="column" style="background-color:transparent;">
+      <h3>LuckyPaws is a registered non-profit all-breed dog, and cat </h3>
+   <h3> rescue based in Sarajevo.</h3>
+      <h3>LuckyPaws is completely run by volunteers</h3>
+      <h3> with no paid staff or board members.</h3>
+     <br/>
+     <br/>
+      <a href="https://www.facebook.com/profile.php?id=100092567239195" class="cta-button">Want to know more?</a>
+    </div>
+    <div class="vl"></div>
+    <div class="column" style="background-color:transparent;">
+      <h1>Our mission: </h1>
+      <h2>Our mission is to save lives and provide safe,</h2>
+      <h2>lovable and furrewer home for dogs and cats in Sarajevo.</h2>
+    </div>
+  </div>
+
+</body>
+</html>

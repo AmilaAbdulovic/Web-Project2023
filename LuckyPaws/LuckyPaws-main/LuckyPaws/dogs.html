@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+@font-face {
+   font-family: myFirstFont;
+   src: url(Inter.zip);
+}
+
+body {font-family: myFirstFont;}
+* {box-sizing: border-box;}
+
+.bg-img {
+  /* The image used */
+  background-image: url("images/2dogs.png");
+  min-height: 380px;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+  /* Needed to position the navbar */
+  position: relative;
+}
+
+/* Position the navbar container inside the image */
+.container {
+  position: absolute;
+  margin: 20px;
+  width: auto;
+}
+
+/* The navbar */
+.topnav {
+  overflow: hidden;
+   background-color: #45A3C5;
+   margin-left: 1040px;
+   margin-top: 30px;
+   z-index: 10;
+   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);;
+}
+
+/* Navbar links */
+.topnav a {
+  float: right;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+* {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+
+.column img {
+  margin-top: 12px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+h2{
+    color: #000;;
+    font-family: 'Inter';
+    font-style: italic;
+    font-weight: 200;
+    font-size: 32px;
+    line-height: 39px;
+    text-align:center;
+    margin-left: 100px;
+}
+
+.buttonprocess{
+  text-decoration: none;
+  margin-left:580px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 50px;
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: transparent;
+  width: 100%;
+  border: 0;
+  padding: 15px 40px;
+  color:#000;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+  border: 0.966611px solid #B0F187;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 50px;
+  border-color: #B0F187;
+}
+.buttonprocess:hover {
+  background: #45A3C5;
+}
+.dog-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.dog-image {
+  width: 100%;
+  height: auto;
+}
+
+.dog-details {
+  color: #f2f2f2; /* Change the color to your desired color */
+  font-weight: bold;
+  font-family: 'Inter', sans-serif; /* Make sure you have imported the Inter font */
+  background-color: #45A3C5;
+  border-radius: 15px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+}
+.button-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+.button {
+  text-decoration: none;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 50px;
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: transparent;
+  width: 100%;
+  border: 0;
+  padding: 15px 40px;
+  color: #fff;;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+  border: 0.966611px solid #B0F187;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 50px;
+  border-color: #B0F187;
+}
+.button:hover {
+  background: #45A3C5;
+}
+
+.adopt-button {
+  background-color: #B0F187;
+}
+
+  </style>
+  <script>
+    $(document).ready(function() {
+      // Handle AJAX navigation
+      $('.ajax-link').click(function(e) {
+        e.preventDefault();
+        var targetPage = $(this).data('target');
+        
+        $.ajax({
+          url: targetPage,
+          type: 'GET',
+          dataType: 'html',
+          success: function(response) {
+            // Update the content of the <body> element with the loaded page
+            $('body').html(response);
+          },
+          error: function(xhr, status, error) {
+            console.log('Error loading page: ' + error);
+          }
+        });
+      });
+    });
+    </script>
+</head>
+<body>
+
+  <div class="bg-img">
+    <div class="container">
+      <div class="topnav">
+        <a href="homepage.html" class="ajax-link" data-target="homepage.html">Logout</a>
+        <a href="contactus.html" class="ajax-link" data-target="contactus.html">Contact us</a> 
+        <a href="aboutus.html" class="ajax-link" data-target="aboutus.html">About us</a>
+        <a href="homepage2.html" class="ajax-link" data-target="homepage2.html">Home</a>
+      </div>
+    </div>
+  </div>
+     
+<br/>
+  <h2> “True love is a hop, skip, and a dog shelter away.” </h2>
+  <br/>
+  <br/>
+    <a href="contactus.html" class="buttonprocess">Want to know more about Adoption/Fostering a pet? </a>
+  <br/>
+  <br/>
+<!-- Dog Grid -->
+<div class="row"> 
+  <div class="column">
+    <div class="dog-container">
+      <img src="images/puppy1.png" alt="Dog 1" class="dog-image">
+      <div class="dog-details">
+        <h3>Name: Lily</h3>
+        <p>Age: 8 months,
+          Gender: female
+        </p>
+        <div class="button-container">
+          <a href="application.html" class="button adopt-button">Adopt</a>
+          <a href="application.html" class="button adopt-button">Foster</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="dog-container">
+      <img src="images/puppy2.jpg" alt="Dog 2" class="dog-image">
+      <div class="dog-details">
+        <h3>Name: Monny </h3>
+        <p>Age: 11 months,
+          Gender: male
+        </p>
+        <div class="button-container">
+          <a href="application.html" class="button adopt-button">Adopt</a>
+          <a href="application.html" class="button adopt-button">Foster</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="dog-container">
+      <img src="images/puppy3.jpg" alt="Dog 3" class="dog-image">
+      <div class="dog-details">
+        <h3>Name: Leo</h3>
+        <p>Age: 1 year,
+          Gender: male</p>
+        <div class="button-container">
+          <a href="application.html" class="button adopt-button">Adopt</a>
+          <a href="application.html" class="button adopt-button">Foster</a>
+        </div>
+      </div>
+    </div>
+    <div class="dog-container">
+      <img src="images/puppy4.jpg" alt="Dog 4" class="dog-image">
+      <div class="dog-details">
+        <h3>Name: Edie </h3>
+        <p>Age: 2 years,
+          Gender: female</p>
+        <div class="button-container">
+          <a href="application.html" class="button adopt-button">Adopt</a>
+          <a href="application.html" class="button adopt-button">Foster</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
+
