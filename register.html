@@ -169,7 +169,7 @@ nav ul li a {
   </style>
   <script>
     $(document).ready(function() {
-      // Handle form submission
+      
       $('.register-form').submit(function(e) {
         e.preventDefault();
 
@@ -179,9 +179,9 @@ nav ul li a {
         var telephone = $('input:nth-child(4)').val();
         var password = $('input:nth-child(5)').val();
 
-        // Make an AJAX request
+        +
         $.ajax({
-          url: 'register.php', // Replace with your server-side script URL
+          url: 'register.php', //Suddenly no db
           type: 'POST',
           data: {
             name: name,
@@ -191,7 +191,7 @@ nav ul li a {
             password: password
           },
           success: function(response) {
-            // Redirect to the homepage after successful registration
+           
             window.location.href = 'homepage2.html';
           },
           error: function(xhr, status, error) {
