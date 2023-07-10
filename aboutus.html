@@ -13,28 +13,27 @@ body {font-family: myFirstFont;}
 * {box-sizing: border-box;}
 
 .bg-img {
-  /* The image used */
   background-image: url("images/dogcatcuddle.jpg");
 
   min-height: 380px;
 
-  /* Center and scale the image nicely */
+
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   
-  /* Needed to position the navbar */
+
   position: relative;
 }
 
-/* Position the navbar container inside the image */
+
 .container {
   position: absolute;
   margin: 20px;
   width: auto;
 }
 
-/* The navbar */
+
 .topnav {
   overflow: hidden;
    background-color: #45A3C5;
@@ -44,7 +43,6 @@ body {font-family: myFirstFont;}
    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);;
 }
 
-/* Navbar links */
 .topnav a {
   float: right;
   color: #f2f2f2;
@@ -62,7 +60,7 @@ body {font-family: myFirstFont;}
   box-sizing: border-box;
 }
 
-/* Create two equal columns that floats next to each other */
+
 .column {
   float: left;
   width: 50%;
@@ -70,7 +68,7 @@ body {font-family: myFirstFont;}
   
 }
 
-/* Clear floats after the columns */
+
 .row:after {
   content: "";
   display: table;
@@ -159,7 +157,7 @@ h3{
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
   $(document).ready(function() {
-    // Handle AJAX navigation
+  
     $('.ajax-link').click(function(e) {
       e.preventDefault();
       var targetPage = $(this).data('target');
@@ -169,7 +167,7 @@ h3{
         type: 'GET',
         dataType: 'html',
         success: function(response) {
-          // Update the content of the <body> element with the loaded page
+          
           $('body').html(response);
         },
         error: function(xhr, status, error) {
