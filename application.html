@@ -8,7 +8,7 @@
 
   background-color: #CCEEBC;
  }
- /* Position the navbar container inside the image */
+
  .container {
    position: absolute;
    margin: 20px;
@@ -23,7 +23,7 @@
       max-height: 600px;
      }
  
- /* The navbar */
+
  .topnav {
    overflow: hidden;
    background-color: #45A3C5;
@@ -33,7 +33,6 @@
    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
  }
  
- /* Navbar links */
  .topnav a {
    float: right;
    color: #f2f2f2;
@@ -96,7 +95,6 @@ form {
 .feedback-input:focus { 
   border:2px solid #fff; }
 
-/* Popup container - can be anything you want */
 .popup {
   position: relative;
   margin-left: 300px;
@@ -108,7 +106,7 @@ form {
   user-select: none;
 }
 
-/* The actual popup */
+
 .popup .popuptext {
   visibility: hidden;
   width: 200px;
@@ -124,7 +122,7 @@ form {
   margin-left: -80px;
 }
 
-/* Popup arrow */
+
 .popup .popuptext::after {
   content: "";
   position: absolute;
@@ -136,14 +134,14 @@ form {
   border-color: #555 transparent transparent transparent;
 }
 
-/* Toggle this class - hide and show the popup */
+
 .popup .show {
   visibility: visible;
   -webkit-animation: fadeIn 10s;
   animation: fadeIn 1s;
 }
 
-/* Add animation (fade in the popup) */
+
 @-webkit-keyframes fadeIn {
   from {opacity: 0;} 
   to {opacity: 1;}
@@ -181,7 +179,7 @@ form {
   color: #fff;
 
 }
-  /* Add this CSS rule */
+ 
   input[type="email"],
   input[type="password"] {
     background-color: white;
@@ -190,7 +188,7 @@ form {
 
 <script>
   $(document).ready(function() {
-    // Handle AJAX navigation
+    
     $('.topnav a').click(function(e) {
       e.preventDefault();
       var targetPage = $(this).attr('href');
@@ -200,7 +198,7 @@ form {
         type: 'GET',
         dataType: 'html',
         success: function(response) {
-          // Update the content of the <body> element with the loaded page
+         
           $('body').html(response);
         },
         error: function(xhr, status, error) {
@@ -209,7 +207,7 @@ form {
       });
     });
   
-    // Handle form submission
+ 
     $('#myForm').submit(function(e) {
       e.preventDefault();
   
@@ -217,9 +215,9 @@ form {
       var email = $('input[name="email"]').val();
       var text = $('textarea[name="text"]').val();
   
-      // Make an AJAX request
+      
       $.ajax({
-        url: 'process.php', // Replace with your server-side script URL
+        url: 'process.php', // Replace with php we dont have :(
         type: 'POST',
         data: {
           name: name,
@@ -228,7 +226,7 @@ form {
         },
         success: function(response) {
           $('#myPopup').addClass('show');
-          // Reset the form fields
+      
           $('input[name="name"]').val('');
           $('input[name="email"]').val('');
           $('textarea[name="text"]').val('');
