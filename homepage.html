@@ -72,7 +72,7 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>
     $(document).ready(function() {
-      // Handle AJAX navigation
+      
       $('a').click(function(e) {
         e.preventDefault();
         var targetPage = $(this).attr('href');
@@ -82,7 +82,7 @@
           type: 'GET',
           dataType: 'html',
           success: function(response) {
-            // Update the content of the <main> element with the loaded page
+           
             $('main').html(response);
           },
           error: function(xhr, status, error) {
