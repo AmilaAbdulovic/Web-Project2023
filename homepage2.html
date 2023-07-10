@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+  body.homepage {
+      background-image: url("images/background.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: relative;
+      font-family: "Inter", sans-serif;
+    }
+
+    /* CSS code for the About Us page */
+    body.aboutus {
+      background-color: #fff;
+      position: relative;
+      font-family: "Inter", sans-serif;
+    }
+
+
+  /* Position the navbar container inside the image */
+  .container {
+    position: absolute;
+    margin: 20px;
+    width: auto;
+    overflow: visible;
+  }
+  
+  .img { 
+    position: absolute;
+    right: 0; 
+    bottom: 0; 
+    margin-left: 350px;
+    max-width: 300px;
+    max-height: 400px;
+  }
+  .logo img{
+    width: 150px;
+    height: 150px;
+  }
+  
+  /* The navbar */
+  .topnav {
+    overflow: hidden;
+    background-color: #45A3C5;
+    margin-left: 1040px;
+    margin-top: 30px;
+    z-index: 10;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  
+  /* Navbar links */
+  .topnav a {
+    float: right;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+
+  h1 {
+    color: #fff;
+    text-align: center;
+    font-family: 'Inter';
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 48px;
+    text-align: center;
+    margin-right: 950px;
+  }
+
+  h2 {
+    margin-top: 0px;
+    color: #fff;
+    font-family: 'Inter';
+    font-style: italic;
+    font-weight: 200;
+    font-size: 32px;
+    line-height: 39px;
+    text-align: center;
+    margin-right: 950px;
+  }
+
+  .button-container {
+    position: absolute;
+    top: 525px;
+    right: 20px;
+  }
+
+  .button-container a {
+    display: inline-block;
+    margin-right: 40px;
+    text-decoration: none;
+    padding: 20px 40px;
+    background-color: #B0F187;
+    color: #FFFFFF;
+    font-size: 18px;
+    border-radius: 50px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+.button:hover {
+  background: #45A3C5;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+  $(document).ready(function() {
+    // Handle AJAX navigation
+    $('.topnav a').click(function(e) {
+      e.preventDefault();
+      var targetPage = $(this).attr('href');
+
+      $.ajax({
+        url: targetPage,
+        type: 'GET',
+        dataType: 'html',
+        success: function(response) {
+          // Update the content of the <body> element with the loaded page
+          $('body').html(response);
+        },
+        error: function(xhr, status, error) {
+          console.log('Error loading page: ' + error);
+        }
+      });
+    });
+  });
+</script>
+</head>
+<body class="homepage">
+  <div class="container">
+    <div class="topnav">
+      <a href="homepage.html" class="ajax-link" data-target="homepage.html">Logout</a>
+      <a href="contactus.html" class="ajax-link" data-target="contactus.html">Contact us</a> 
+      <a href="aboutus.html" class="ajax-link" data-target="aboutus.html">About us</a>
+      <a href="homepage2.html" class="ajax-link" data-target="homepage2.html">Home</a>
+    </div>
+  </div>
+  <img src="images/logo.png" alt="LuckyPaws Logo">
+  <h1>Lucky paws</h1>
+  <h2>Furrever home for a furry friend</h2>
+  <div class="button-container">
+    <a href="dogs.html" class="button">Dogs</a>
+    <a href="cats.html" class="button">Cats</a>
+  </div>
+</body>
+</html>

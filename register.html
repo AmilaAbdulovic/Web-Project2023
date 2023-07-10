@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RegisterPage</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body.register{
+  overflow: hidden;
+  background-color: #45A3C5;
+}
+
+header {
+  padding: 0;
+  color: inherit;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+}
+
+nav img {
+  width: 50px;
+  height: 50px;
+}
+
+nav {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px;
+  color: #ffffff;
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  background-color: #333333;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin-top: 20px;
+}
+
+nav ul li {
+  margin-bottom: 10px;
+}
+
+nav ul li a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.register-page {
+  width: 360px;
+  padding: 8% 0 0;
+  margin: auto;
+  text-align: center;
+}
+
+.register-page .content {
+  max-width: 600px;
+  margin: 0 auto;
+  color: #ffffff;
+}
+
+.register-page h2 {
+  color: #ffffff;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.register-form {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.register-form input {
+  font-family: "Inter", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.buttons {
+  margin-top: 20px;
+}
+
+.cta-button {
+  text-decoration: none;
+  margin-right: 20px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 50px;
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #B0F187;
+  width: 100%;
+  border: 0;
+  padding: 15px 40px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+  border: 0.966611px solid #B0F187;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 50px;
+}
+
+.cta-button:hover,
+.form button:active,
+.form button:focus {
+  background: #45A3C5;
+}
+
+
+.register-form .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
+}
+
+.register-form .message a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+
+.register-login {
+  max-width: 200px;
+  max-height: 200px;
+  margin-top: 5px;
+}
+.h2{
+  font-family: "Inter", sans-serif;
+}
+
+
+  </style>
+  <script>
+    $(document).ready(function() {
+      // Handle form submission
+      $('.register-form').submit(function(e) {
+        e.preventDefault();
+
+        var name = $('input:nth-child(1)').val();
+        var email = $('input:nth-child(2)').val();
+        var username = $('input:nth-child(3)').val();
+        var telephone = $('input:nth-child(4)').val();
+        var password = $('input:nth-child(5)').val();
+
+        // Make an AJAX request
+        $.ajax({
+          url: 'register.php', // Replace with your server-side script URL
+          type: 'POST',
+          data: {
+            name: name,
+            email: email,
+            username: username,
+            telephone: telephone,
+            password: password
+          },
+          success: function(response) {
+            // Redirect to the homepage after successful registration
+            window.location.href = 'homepage2.html';
+          },
+          error: function(xhr, status, error) {
+            console.log('Error registering: ' + error);
+          }
+        });
+      });
+    });
+  </script>
+</head>
+
+<body class="register">
+    <div class="register-page">
+        <img src=" images/logo.png" alt="LuckyPaws Logo" class="logo-register">
+        <h2>Register</h2>
+        <form class="register-form">
+            <input type="text" placeholder="name and surname"/>
+            <input type="text" placeholder="email address"/>
+            <input type="text" placeholder="username"/>
+            <input type="tel" placeholder="telephone number" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"/>
+            <input type="password" placeholder="password"/>
+            <div class="buttons">
+              <a href="homepage2.html" class="cta-button">Register</a>
+            </div>
+            <br/>
+            <p class="message">Already have an account? <a href="login.html">Login</a></p>
+          </form>
+        </div>
+</body>
+
+</html>
+  

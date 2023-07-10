@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+ 
+ body{
+
+  background-color: #CCEEBC;
+ }
+ /* Position the navbar container inside the image */
+ .container {
+   position: absolute;
+   margin: 20px;
+   width: auto;
+ }
+ .img { 
+      position: absolute;
+      right: 0; 
+      bottom: 0; 
+      margin-right: 200px;
+      max-width: 400px;
+      max-height: 600px;
+     }
+ 
+ /* The navbar */
+ .topnav {
+   overflow: hidden;
+   background-color: #45A3C5;
+   margin-left: 1040px;
+   margin-top: 30px;
+   z-index: 10;
+   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+ }
+ 
+ /* Navbar links */
+ .topnav a {
+   float: right;
+   color: #f2f2f2;
+   text-align: center;
+   padding: 14px 16px;
+   text-decoration: none;
+   font-size: 17px;
+ }
+ 
+ .topnav a:hover {
+   background-color: #ddd;
+   color: black;
+ }
+ * {
+   box-sizing: border-box;
+ }
+ @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+*{
+    margin: 0;
+} 
+
+form { 
+    position: absolute;
+    margin: 20px;
+    max-width:500px;
+    margin:50px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: #45A3C5;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    margin-left: 350px;
+    margin-top: 137px;
+}
+.form logo{
+    position: absolute;
+    background: url(C:\Users\Amila\Downloads\logo.png), url(C:\Users\Amila\Downloads\logo.png);
+
+}
+
+.feedback-input {
+  color:white;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight:500;
+  font-size: 18px;
+  border-radius: 5px;
+  border: 2px solid #666666; 
+  line-height: 22px;
+  background-color: transparent;
+  transition: all 0.3s;
+  width:100%;
+  box-sizing: border-box;
+  outline:0;
+}
+
+.feedback-input:focus { 
+  border:2px solid #fff; }
+
+/* Popup container - can be anything you want */
+.popup {
+  position: relative;
+  margin-left: 300px;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* The actual popup */
+.popup .popuptext {
+  visibility: hidden;
+  width: 200px;
+  background-color: #45A3C5;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 10s;
+  animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;} 
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+.form-button{
+  text-decoration: none;
+  margin-left: 10px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 50px;
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #B0F187;
+  width: 100%;
+  border: 0;
+  padding: 15px 40px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+  border: 0.966611px solid #B0F187;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 50px;
+}
+.form-button:hover,
+.form button:active,
+.form button:focus {
+  background-color: #45A3C5;
+  color: #fff;
+
+}
+  /* Add this CSS rule */
+  input[type="email"],
+  input[type="password"] {
+    background-color: white;
+  }
+</style>
+
+<script>
+  $(document).ready(function() {
+    // Handle AJAX navigation
+    $('.topnav a').click(function(e) {
+      e.preventDefault();
+      var targetPage = $(this).attr('href');
+      
+      $.ajax({
+        url: targetPage,
+        type: 'GET',
+        dataType: 'html',
+        success: function(response) {
+          // Update the content of the <body> element with the loaded page
+          $('body').html(response);
+        },
+        error: function(xhr, status, error) {
+          console.log('Error loading page: ' + error);
+        }
+      });
+    });
+  
+    // Handle form submission
+    $('#myForm').submit(function(e) {
+      e.preventDefault();
+  
+      var name = $('input[name="name"]').val();
+      var email = $('input[name="email"]').val();
+      var text = $('textarea[name="text"]').val();
+  
+      // Make an AJAX request
+      $.ajax({
+        url: 'process.php', // Replace with your server-side script URL
+        type: 'POST',
+        data: {
+          name: name,
+          email: email,
+          text: text
+        },
+        success: function(response) {
+          $('#myPopup').addClass('show');
+          // Reset the form fields
+          $('input[name="name"]').val('');
+          $('input[name="email"]').val('');
+          $('textarea[name="text"]').val('');
+        },
+        error: function(xhr, status, error) {
+          console.log('Error submitting form: ' + error);
+        }
+      });
+    });
+  });
+  function myFunction() {
+          var popup = document.getElementById("myPopup");
+          popup.classList.toggle("show");
+        }
+  </script>
+</head>
+<body>
+
+  <div class="container">
+    <div class="topnav">
+        <a href="homepage.html" class="ajax-link" data-target="homepage.html">Logout</a>
+      <a href="contactus.html" class="ajax-link" data-target="contactus.html">Contact us</a> 
+      <a href="aboutus.html" class="ajax-link" data-target="aboutus.html">About us</a>
+      <a href="homepage2.html" class="ajax-link" data-target="homepage2.html">Home</a>
+    </div>
+  </div>
+
+     
+    
+    <div class="img">
+        <img src="images/catontopdog.png" alt="catontopdog" style="float: right; margin-left: 15px;">
+     </div>
+
+   
+     <form id="myForm">      
+        <img src=" images/logo.png" alt="LuckyPaws Logo" width="220" height="200">
+        <br/>
+        <input name="email" type="text" class="feedback-input" placeholder="Email" />  
+        <br/> 
+        <input name="password" type="text" class="feedback-input" placeholder="Password" />
+        <br/>
+        <button class="form-button" onclick="myFunction()">Submit</button>
+        <div class="popup">
+            <span class="popuptext" id="myPopup">Application successfully sent! Check your email for further notice! </span>
+        </div>
+    </form>
+
+
+</body>
+</html>
+
